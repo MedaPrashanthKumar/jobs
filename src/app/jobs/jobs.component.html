@@ -1,0 +1,17 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6" *ngFor="let i of jobs">
+            <div class="card  m-3">
+                <div class="card-body">
+                     <h5>{{i.role}}</h5>
+                     <p style="color:grey">{{i.company}}</p>
+                     <p><i class="fa fa-map-marker"  aria-hidden="true"></i>  {{i.location}}</p>
+                     <p><i class="fa fa-briefcase"></i> {{i. experience}}</p>
+                     <p><i class="fa fa-usd" aria-hidden="true"></i>  {{i.salary}}</p>
+                     <button class="btn btn-primary">Apply Job</button>
+                </div>
+              </div> 
+        </div>
+    </div>
+</div>

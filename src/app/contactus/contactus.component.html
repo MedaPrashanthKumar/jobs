@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1 style="color:red;text-align: center;">Get In Touch</h1>
+        <form #ref="ngForm" (ngSubmit)="ref.form.valid && onSelect(ref)" novalidate>
+          <!-- Name -->
+          <div class="form-floating m-3">
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="Name"
+              name="username"
+             #username="ngModel" ngModel
+             required  />
+            <label for="username">Name</label>
+          </div>
+          <!-- Username Validations -->
+          <div *ngIf="(username.touched || ref.submitted) && username.invalid" class="m-3" style="color:red;">
+            *Username is required
+          </div>
+  
+          <!-- Email -->
+          <div class="form-floating m-3">
+            <input
+              type="email"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Email"
+              name="email"
+              ngModel required #pass="ngModel" 
+            />
+            <label for="floatingPassword">Email</label>
+          </div>
+          <!-- Email validations -->
+          <div *ngIf="pass.invalid && (pass.dirty || pass.touched || ref.submitted)" >
+            <div *ngIf="pass.errors?.['required']" class="m-3" style="color:red;">
+              *Email is required
+            </div>
+          </div>
+         
+          <!-- Phone Number -->
+          <div class="form-floating m-3">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Phone Number"
+              name="designation" required
+              ngModel #desg="ngModel"
+            />
+            <label for="floatingInput">PhoneNumber</label>
+          </div>
+  
+          <!-- Phone Number validations -->
+          <div *ngIf="(desg.touched || ref.submitted) && desg.invalid" class="m-3" style="color:red;">
+            *Phone Number is required
+          </div>
+  
+          <!-- About yourself -->
+
+          <!-- Message -->
+          <div class="message m-3">
+            <textarea  cols="67" rows="4" placeholder="Message"  ngModel name="about yourself" required  #about="ngModel" minlength="20">
+
+            </textarea>
+            <!-- Message Validations -->
+            <div *ngIf="about.invalid && (about.dirty || about.touched || ref.submitted)" >
+                <div *ngIf="about.errors?.['required']" class="m-3" style="color:red;">
+                  *Message is required
+                </div>
+                
+                <div *ngIf="about.errors?.['minlength']" class="m-3" style="color:red;">
+                  *Message must contain minlength 20 characters
+                </div>
+              </div>
+          </div>
+        
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-danger d-block mx-auto  m-3 ">Submit</button>
+        </form>
+      </div>
+      
+      <div class="col-sm-6">
+        <img src="../../assets/contactUs.jpg" alt="contact us" width="500px" height="400px">
+      </div>
+    </div>
+  </div>
+  
+
+
+  <!-- Footer -->
+  <app-footer></app-footer>
